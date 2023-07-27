@@ -1,8 +1,17 @@
+const UserCard = ({user, deleteUserById, setUpdateInfo}) => {
 
-const UserCard = ({user}) => {
+    const handleDelete = () => {
+        deleteUserById('/users', user.id)
+    }
+
+    const handleUpdate = () => {
+        setUpdateInfo(user)
+    }
+
     return (
+
         <article>
-            <h2>{`${user.first_name} $a{user.last_name}`}</h2>
+            <h2>{`${user.first_name} ${user.last_name}`}</h2>
             <hr />
             <ul>
                 <li>
@@ -16,12 +25,12 @@ const UserCard = ({user}) => {
             </ul>
             <hr />
             <footer>
-                <button></button>
-                <button></button>
+                <button onClick={handleDelete}><i className='bx bxs-trash'></i></button>
+                <button onClick={handleUpdate}><i className='bx bx-edit' ></i></button>
                 
             </footer>
         </article>
-    )
-}
+    );
+};
 
-export default UserCard
+export default UserCard;
