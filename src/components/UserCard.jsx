@@ -1,4 +1,4 @@
-const UserCard = ({user, deleteUserById, setUpdateInfo}) => {
+const UserCard = ({user, deleteUserById, setUpdateInfo, handleOpenForm}) => {
 
     const handleDelete = () => {
         deleteUserById('/users', user.id)
@@ -6,6 +6,7 @@ const UserCard = ({user, deleteUserById, setUpdateInfo}) => {
 
     const handleUpdate = () => {
         setUpdateInfo(user)
+        handleOpenForm()
     }
 
     return (
